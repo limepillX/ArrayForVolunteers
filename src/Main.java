@@ -7,7 +7,7 @@ public class Main {
             System.out.println("Input array: " + Arrays.toString(arr));
         }
 
-        Arrays.sort(arr);
+
         int left = 0;
         int right = arr.length - 1;
         while (left < right) {
@@ -41,13 +41,25 @@ public class Main {
     }
 
     public static int[] getSpeedTestArray() {
-        int[] arr = new int[100000];
+        int[] arr = new int[2000];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = i;
+            arr[i] = i - 2000;
         }
         return arr;
     }
 
+    public static int[] getShuffledArray() {
+        int[] longArray = getSpeedTestArray();
+
+        for (int i = 0; i < longArray.length; i++) {
+            int randomIndex = (int) (Math.random() * longArray.length);
+            int temp = longArray[i];
+            longArray[i] = longArray[randomIndex];
+            longArray[randomIndex] = temp;
+        }
+        return longArray;
+
+    }
     public static void main(String[] args) {
         int[] test1 = {3, 2, -2, 5, -3};
         int[] test2 = {1, 1, 2, -1, 2, -1};
@@ -67,7 +79,7 @@ public class Main {
         higherComplexity(test4);
 
         long startTime = System.nanoTime();
-        lowerComplexity(getSpeedTestArray());
+        lowerComplexity(getShuffledArray());
         long endTime1 = System.nanoTime() - startTime;
 
         long startTime2 = System.nanoTime();
