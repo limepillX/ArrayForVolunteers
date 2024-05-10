@@ -7,6 +7,7 @@ public class Main {
             System.out.println("Input array: " + Arrays.toString(arr));
         }
 
+        Arrays.sort(arr);
 
         int left = 0;
         int right = arr.length - 1;
