@@ -41,9 +41,10 @@ public class Main {
     }
 
     public static int[] getSpeedTestArray() {
-        int[] arr = new int[2000];
+        int LENGTH = 100000;
+        int[] arr = new int[LENGTH];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = i - 2000;
+            arr[i] = i - LENGTH;
         }
         return arr;
     }
