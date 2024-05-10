@@ -35,8 +35,9 @@ public class Main {
 
         for (int i = 0; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] == -arr[j] && Math.abs(arr[i]) > highestPair) {
-                    highestPair = Math.abs(arr[i]);
+                int absoluteI = Math.abs(arr[i]);
+                if (arr[i] == -arr[j] && absoluteI > highestPair) {
+                    highestPair = absoluteI;
                     break;
                 }
             }
