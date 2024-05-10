@@ -30,19 +30,27 @@ public class Main {
             System.out.println("Input array: " + Arrays.toString(arr));
 
         }
+
+        int highestPair = -1;
+
         for (int i = 0; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] == -arr[j]) {
-                    System.out.println("Matching pair found: " + arr[i] + " and " + arr[j]);
-                    return;
+                if (arr[i] == -arr[j] && Math.abs(arr[i]) > highestPair) {
+                    highestPair = Math.abs(arr[i]);
+                    break;
                 }
             }
         }
-        System.out.println("No matching pair found");
+
+        if (highestPair != -1) {
+            System.out.println("Matching pair found: " + highestPair + " and " + -highestPair);
+        } else {
+            System.out.println("No matching pair found");
+        }
     }
 
     public static int[] getSpeedTestArray() {
-        int LENGTH = 100000;
+        int LENGTH = 10000;
         int[] arr = new int[LENGTH];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = i - LENGTH / 2;
@@ -80,12 +88,14 @@ public class Main {
         lowerComplexity(test4);
         higherComplexity(test4);
 
+        int[] shuffledArray = getShuffledArray();
         long startTime = System.nanoTime();
-        lowerComplexity(getShuffledArray());
+        lowerComplexity(shuffledArray);
         long endTime1 = System.nanoTime() - startTime;
 
+        int[] shuffledArray2 = getShuffledArray();
         long startTime2 = System.nanoTime();
-        higherComplexity(getSpeedTestArray());
+        higherComplexity(shuffledArray2);
         long endTime2 = System.nanoTime() - startTime2;
 
         System.out.println("\nSpeed test for long array:");
