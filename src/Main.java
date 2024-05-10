@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Main {
     public static void lowerComplexity(int[] arr) {
         System.out.println("\nLower complexity solution:");
-        if (arr.length < 10){
+        if (arr.length < 10) {
             System.out.println("Input array: " + Arrays.toString(arr));
         }
 
@@ -24,9 +24,10 @@ public class Main {
         System.out.println("No matching pair found");
 
     }
+
     public static void higherComplexity(int[] arr) {
         System.out.println("\nHigher complexity solution:");
-        if (arr.length < 10){
+        if (arr.length < 10) {
             System.out.println("Input array: " + Arrays.toString(arr));
 
         }
@@ -35,8 +36,12 @@ public class Main {
 
         for (int i = 0; i < arr.length; i++) {
             int absoluteI = Math.abs(arr[i]);
+            if (absoluteI < highestPair) {
+                continue;
+            }
+
             for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] == -arr[j] && absoluteI > highestPair) {
+                if (arr[i] == -arr[j]) {
                     highestPair = absoluteI;
                     break;
                 }
@@ -71,6 +76,7 @@ public class Main {
         return longArray;
 
     }
+
     public static void main(String[] args) {
         int[] test1 = {3, 2, -2, 5, -3};
         int[] test2 = {1, 1, 2, -1, 2, -1};
